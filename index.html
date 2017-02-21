@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>React tutorial</title>
+    <script src="https://fb.me/react-0.14.7.js"></script>
+    <script src="https://fb.me/react-dom-0.14.7.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.2/browser.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="lesson5challengestyling.css">
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="text/babel">
+    var CounterChallenge = React.createClass({
+getInitialState: function() {
+  return {
+    count: 0
+  }
+},
+incrementCountByOne: function(value) {
+  this.setState({
+    count: this.state.count + 1
+  })
+},
+incrementCountByFive: function() {
+  this.setState({
+    count: this.state.count + 5
+  })
+},
+incrementCountByTen: function() {
+  this.setState({
+    count: this.state.count + 10
+  })
+},
+decrementCountByOne: function() {
+  this.setState({
+    count: this.state.count - 1
+  })
+},
+decrementCountByFive: function() {
+  this.setState({
+    count: this.state.count - 5
+  })
+},
+decrementCountByTen: function() {
+  this.setState({
+    count: this.state.count - 10
+  })
+},
+resetCount: function(){
+  this.setState({
+      count: 0
+  })
+},
+render: function() {
+  return (
+    <div>
+    <div className="container">
+      <h1>Count: {this.state.count}</h1>
+      <button className="btn blue-btn" onClick={this.incrementCountByOne}>Add 1</button>
+      <button className="btn green-btn" onClick={this.incrementCountByFive}>Add 5</button>
+      <button className="btn purple-btn" onClick={this.incrementCountByTen}>Add 10</button>
+    </div>
+    <div className="container">
+        <button className="btn blue-btn" onClick={this.decrementCountByOne}>Subtract 1</button>
+        <button className="btn green-btn" onClick={this.decrementCountByFive}>Subtract 5</button>
+        <button className="btn purple-btn" onClick={this.decrementCountByTen}>Subtract 10</button>
+    </div>
+    <div className="container">
+      <button className="btn red-btn" onClick={this.resetCount}>Zero</button>
+    </div>
+  </div>
+  )
+}
+});
+
+ReactDOM.render(
+<CounterChallenge />,
+document.getElementById('app')
+);
+    </script>
+  </body>
+</html>
+
